@@ -91,6 +91,22 @@
             transition: transform 0.05s linear;
         }
 
+        /* Hiệu ứng kính mờ ảo diệu (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(223, 180, 230, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px 0 rgba(223, 180, 230, 0.25);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
         /* Máy phát nhạc xoay tròn */
         .music-vinyl {
             animation: spin 10s linear infinite paused;
@@ -159,20 +175,20 @@
                     <i class="fa-brands fa-google-drive"></i> <span class="hidden sm:inline">Bài tập trên GG Drive</span>
                 </a>
                 
-                <!-- Bộ phát nhạc 1 bài duy nhất -->
-                <div class="flex items-center bg-white/70 backdrop-blur-md rounded-full px-3 py-1 border border-pink-100 shadow-sm gap-2">
+                <!-- Bộ phát nhạc 1 bài duy nhất tự phát -->
+                <div class="flex items-center bg-white/70 backdrop-blur-md rounded-full px-3 py-1.5 border border-pink-100 shadow-sm gap-2">
                     <button id="music-btn" class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center relative cursor-pointer focus:outline-none" title="Phát/Tạm dừng">
                         <div class="music-vinyl w-7 h-7 rounded-full bg-gray-800 border border-pink-300 flex items-center justify-center text-[10px] text-white" id="vinyl">
                             🎹
                         </div>
                     </button>
-                    <div class="text-[10px] text-gray-500 max-w-[110px] leading-tight hidden sm:block">
+                    <div class="text-[10px] text-gray-500 max-w-[120px] leading-tight hidden sm:block">
                         <span class="font-bold text-pink-500 block truncate" id="song-title">On A Piano Cloud</span>
-                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Liborio Conti 🎹</span>
+                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Sleep Piano 🌙</span>
                     </div>
                 </div>
-                <!-- Nhạc nền Piano du dương tự động phát -->
-                <audio id="bg-music" loop src="https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3"></audio>
+                <!-- Nhạc nền Piano mộng mơ -->
+                <audio id="bg-music" loop></audio>
             </div>
         </div>
     </nav>
@@ -195,7 +211,7 @@
                 </h1>
                 
                 <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                    Xin chào! Tôi là một tân sinh viên năm nhất chuyên ngành <strong class="text-pink-500 font-semibold">Ngôn ngữ và Văn hóa Anh</strong> dưới mái trường <strong class="text-purple-500 font-semibold">Đại học Ngoại ngữ - ĐHQGHN (ULIS)</strong>. Là một người yêu ngôn ngữ nhưng luôn khao khát làm chủ công nghệ số học hiện đại, Portfolio này chính là không gian lưu trữ trực quan toàn bộ thành quả thực hành của tôi trong học phần <strong class="text-blue-500 font-semibold">Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong>.
+                    Xin chào! Tôi là một tân sinh viên năm nhất chuyên ngành <strong class="text-pink-500 font-semibold">Ngôn ngữ và Văn hóa Anh</strong> dưới mái trường <strong class="text-purple-500 font-semibold">Đại học Ngoại ngữ - ĐHQGHN (ULIS)</strong> [1]. Là một người yêu ngôn ngữ nhưng luôn khao khát làm chủ công nghệ số học hiện đại, Portfolio này chính là không gian lưu trữ trực quan toàn bộ thành quả thực hành của tôi trong học phần <strong class="text-blue-500 font-semibold">Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong> [1].
                 </p>
 
                 <!-- Thẻ sinh viên chi tiết -->
@@ -262,7 +278,7 @@
                     </h3>
                     <ul class="text-xs md:text-sm text-gray-600 space-y-2 list-disc list-inside">
                         <li>Ứng dụng tốt công nghệ số để thiết lập hệ thống lưu trữ bài học tự động hóa hiệu quả.</li>
-                        <li>Hiểu và viết câu lệnh prompt chuẩn mực, phục vụ đắc lực cho các tác vụ nghiên cứu dịch thuật và tự rèn luyện kỹ năng viết học thuật.</li>
+                        <li>Hiểu và viết câu lệnh prompt chuẩn mực, phục vụ đắc lực cho các tác vụ nghiên cứu dịch thuật và tự rèn luyện kỹ năng viết học thuật của tôi.</li>
                         <li>Cân bằng tính chính trực, không lạm dụng AI tạo sinh nhằm phát huy bản sắc cá nhân nguyên bản.</li>
                     </ul>
                 </div>
@@ -334,7 +350,7 @@
                             Ở bài thực hành đầu tiên, tôi đã thực hiện thiết lập cấu trúc thư mục lưu trữ logic trực tiếp trên đĩa cứng hệ thống <code>DUONG CHI (D:)</code> để quản lý toàn bộ học liệu học phần. Quy trình thao tác được ghi nhận qua các bước tiêu chuẩn: tạo thư mục mẹ, khởi tạo file ghi chú, di chuyển tệp tin, xóa vĩnh viễn và khôi phục từ Thùng rác.
                         </p>
 
-                        <!-- Mô phỏng Cây Thư Mục Tương Tác thực tế của Dương -->
+                        <!-- Mô phỏng Cây Thư Mục Tương Tác thực tế của tôi -->
                         <div class="bg-gray-900 rounded-2xl p-6 text-emerald-400 font-mono text-xs md:text-sm shadow-xl relative overflow-hidden border border-gray-700">
                             <div class="absolute top-2 right-4 flex gap-2">
                                 <span class="w-3 h-3 rounded-full bg-red-400 block"></span>
@@ -573,14 +589,14 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm tôi đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa).
+                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm chúng tôi đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa) [2].
                         </p>
 
                         <!-- Bản đồ các Thử thách và Giải pháp thực tế của nhóm -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                             <div class="p-4 rounded-xl bg-pink-50/50 border border-pink-100 space-y-1">
                                 <h4 class="font-bold text-pink-700"><i class="fa-solid fa-comments"></i> 1. Trôi tin nhắn (Discord)</h4>
-                                <p class="text-[11px] text-gray-500"><strong>Thử thách:</strong> Luồng thảo luận nhóm quá nhanh làm thất lạc các quyết định quan trọng.</p>
+                                <p class="text-[11px] text-gray-500"><strong>Thử thách:</strong> Luồng thảo luận nhóm quá nhanh làm thất lạc các quyết định quan trọng của chúng tôi [2].</p>
                                 <p class="text-[11px] text-emerald-600"><strong>Giải pháp:</strong> Lập riêng kênh <code>#announcements-only</code>, chỉ ghim tin chốt kèm tag @everyone và bắt buộc thả emoji xác nhận.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-purple-50/50 border border-purple-100 space-y-1">
@@ -620,7 +636,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Tôi đã đóng vai trò là "Tổng đạo diễn" tích hợp sức mạnh của 3 công cụ AI tạo sinh hàng đầu: <strong>ChatGPT (GPT-3.5)</strong> soạn thảo nội dung học thuật, <strong>Canva AI</strong> định hình bố cục khung infographic chuẩn APA và <strong>DALL-E 3</strong> để phác họa nhân vật sinh viên Việt Nam năng động dưới mái trường ULIS.
+                            Tôi đã đóng vai trò là "Tổng đạo diễn" tích hợp sức mạnh của 3 công cụ AI tạo sinh hàng đầu: <strong>ChatGPT (GPT-3.5)</strong> soạn thảo nội dung học thuật, <strong>Canva AI</strong> định hình bố cục khung infographic chuẩn APA và <strong>DALL-E 3</strong> để phác họa nhân vật sinh viên Việt Nam năng động dưới mái trường ULIS [2].
                         </p>
 
                         <!-- Quy trình thực hành thực tế -->
@@ -668,7 +684,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Sau khi phân tích kỹ lưỡng Khung hướng dẫn chiến lược về ứng dụng AI của ĐHQGHN, tôi nhận thấy nhà trường không cấm đoán cực đoan mà tập trung giáo dục ý thức. Tôi đã thiết lập riêng **6 nguyên tắc đạo đức số cá nhân** để định hình phong cách nghiên cứu lành mạnh.
+                            Sau khi phân tích kỹ lưỡng Khung hướng dẫn chiến lược về ứng dụng AI của ĐHQGHN, tôi nhận thấy nhà trường không cấm đoán cực đoan mà tập trung giáo dục ý thức [2]. Tôi đã thiết lập riêng **6 nguyên tắc đạo đức số cá nhân** để định hình phong cách nghiên cứu lành mạnh của tôi [2].
                         </p>
 
                         <!-- 6 Nguyên tắc từ Infographic TikZ của bạn -->
@@ -691,11 +707,11 @@
                             </div>
                             <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
                                 <h4 class="font-bold text-emerald-700">5. Làm chủ ngôn ngữ</h4>
-                                <p class="text-gray-500 leading-relaxed">Chỉ dùng AI để rà soát lỗi ngữ pháp nhỏ, luôn giữ vững giọng văn riêng độc bản (authorial voice) của chính mình.</p>
+                                <p class="text-gray-500 leading-relaxed">Chỉ dùng AI để rà soát lỗi ngữ pháp nhỏ, luôn giữ vững giọng văn riêng độc bản (authorial voice) của mình.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 space-y-1">
                                 <h4 class="font-bold text-indigo-700">6. Phát triển bền vững</h4>
-                                <p class="text-gray-500 leading-relaxed">Sử dụng AI với mục đích nâng cao hiệu suất học tập, tuyệt đối không dùng AI để đối phó với các kỳ thi hoặc bài đánh giá năng lực cốt lõi.</p>
+                                <p class="text-gray-500 leading-relaxed">Sử dụng AI để nâng tầm tri thức, không lạm dụng copy-paste để đối phó với các kỳ đánh giá năng lực cốt lõi.</p>
                             </div>
                         </div>
 
@@ -729,7 +745,7 @@
                     <div class="space-y-4">
                         <h4 class="font-serif text-lg font-bold text-pink-600 italic">Nhật ký của tôi...</h4>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Trải nghiệm thực hiện dự án số hóa cá nhân này giúp tôi hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình.
+                            Trải nghiệm thực hiện dự án số hóa cá nhân này giúp tôi hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình [2].
                         </p>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
                             Từ việc sắp xếp đĩa cứng DUONG CHI (D:), tra cứu 11 tài liệu đến việc phân cấp các prompt Chomsky, tôi đã hình thành tư duy hệ thống và tác phong làm việc vô cùng chuyên nghiệp.
@@ -750,12 +766,12 @@
                     
                     <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-100 space-y-1">
                         <h5 class="font-bold text-blue-700 flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> Thử thách lớn nhất đã vượt qua</h5>
-                        <p class="text-gray-600">Đấu tranh với thói quen ỷ lại công nghệ (digital laziness) khi viết bài luận bảo tồn ngôn ngữ bản địa, rèn luyện thói quen tự biên soạn 100% nội dung chi tiết.</p>
+                        <p class="text-gray-600">Đấu tranh với thói quen ỷ lại công nghệ (digital laziness) khi viết bài luận bảo tồn ngôn ngữ bản địa, rèn luyện thói quen tự biên soạn 100% nội dung chi tiết [2].</p>
                     </div>
 
                     <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
                         <h5 class="font-bold text-emerald-700 flex items-center gap-1"><i class="fa-solid fa-rocket"></i> Hành trình tương lai</h5>
-                        <p class="text-gray-600">Tôi mong muốn sẽ tiếp tục cập nhật, biến portfolio mộng mơ này thành một CV số cá nhân độc đáo đồng hành cùng tôi trên mọi chặng đường học tập sắp tới tại ULIS.</p>
+                        <p class="text-gray-600">Tôi muốn tiếp tục tối ưu hóa, biến portfolio mộng mơ này thành một CV số cá nhân độc đáo đồng hành cùng tôi trên mọi chặng đường học tập sắp tới tại ULIS [2].</p>
                     </div>
                 </div>
             </div>
@@ -816,18 +832,31 @@
         });
 
 
-        // --- 2. TRÌNH PHÁT NHẠC PIANO DU DƯƠNG TỰ ĐỘNG PHÁT ---
+        // --- 2. TRÌNH PHÁT NHẠC PIANO DU DƯƠNG TỰ PHÁT KHI LOAD XONG ---
         const musicBtn = document.getElementById('music-btn');
         const vinyl = document.getElementById('vinyl');
         const bgMusic = document.getElementById('bg-music');
+        const songTitle = document.getElementById('song-title');
+        const songArtist = document.getElementById('song-artist');
+
         let isPlaying = false;
+
+        // Chỉ định cấu hình nguồn nhạc duy nhất theo yêu cầu [3]
+        const singleTrackUrl = "https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3";
+
+        function loadTrack() {
+            bgMusic.src = singleTrackUrl;
+            songTitle.innerText = "On A Piano Cloud";
+            songArtist.innerText = "Sleep Piano 🌙";
+            bgMusic.load();
+        }
 
         function playTrack() {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 vinyl.classList.add('playing');
             }).catch(err => {
-                console.log("Trình duyệt chặn autoplay có tiếng. Nhấn vào bất kỳ đâu trên trang để phát nhạc hoặc click nút Vinyl.");
+                console.log("Cơ chế bảo mật trình duyệt chặn tự động phát. Nhạc sẽ tự chạy sau tương tác đầu tiên của người dùng.");
             });
         }
 
@@ -837,22 +866,24 @@
             vinyl.classList.remove('playing');
         }
 
-        // Thử phát ngay khi trang load xong
-        window.addEventListener('load', () => {
+        // Tải bài hát ban đầu
+        loadTrack();
+
+        // Tự phát ngay khi load xong trang [3]
+        window.addEventListener('DOMContentLoaded', () => {
             playTrack();
         });
 
-        // Cơ chế bọc lót: Tự phát nhạc khi người dùng click lần đầu tiên vào bất kỳ vị trí nào trên trang web
-        document.addEventListener('click', function initiateAutoplay() {
-            if (!isPlaying) {
+        // Hỗ trợ tự phát ngay trên tương tác đầu tiên của người dùng trên trang nếu bị trình duyệt chặn
+        document.addEventListener('click', () => {
+            if (!isPlaying && bgMusic.paused) {
                 playTrack();
             }
-            document.removeEventListener('click', initiateAutoplay);
         }, { once: true });
 
-        // Tương tác trực tiếp trên nút phát nhạc
+        // Tương tác của nút Play/Pause
         musicBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Tránh kích hoạt trình nghe click chung của document
+            e.stopPropagation(); // Tránh kích hoạt sự kiện click của document
             if (!isPlaying) {
                 playTrack();
             } else {
