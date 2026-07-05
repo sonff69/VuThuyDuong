@@ -67,22 +67,6 @@
             background-attachment: fixed;
         }
 
-        /* Hiệu ứng kính mờ ảo diệu (Glassmorphism) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px 0 rgba(223, 180, 230, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px 0 rgba(223, 180, 230, 0.25);
-            background: rgba(255, 255, 255, 0.75);
-        }
-
         /* Bong bóng pastel đuôi chuột dịu nhẹ (Trail) */
         .magic-cursor {
             width: 16px;
@@ -105,6 +89,22 @@
             z-index: 9998;
             transform: translate(-50%, -50%);
             transition: transform 0.05s linear;
+        }
+
+        /* Hiệu ứng kính mờ ảo diệu (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(223, 180, 230, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px 0 rgba(223, 180, 230, 0.25);
+            background: rgba(255, 255, 255, 0.75);
         }
 
         /* Máy phát nhạc xoay tròn */
@@ -189,12 +189,12 @@
                         <i class="fa-solid fa-forward"></i>
                     </button>
                     <div class="text-[10px] text-gray-500 max-w-[110px] leading-tight hidden sm:block">
-                        <span class="font-bold text-pink-500 block truncate" id="song-title">Chopin Nocturne</span>
-                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Op. 9 No. 2 🌙</span>
+                        <span class="font-bold text-pink-500 block truncate" id="song-title">On A Piano Cloud</span>
+                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Liborio Conti ☁️</span>
                     </div>
                 </div>
                 <!-- Nhạc nền Piano mộng mơ -->
-                <audio id="bg-music" loop></audio>
+                <audio id="bg-music" loop preload="auto"></audio>
             </div>
         </div>
     </nav>
@@ -595,7 +595,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm của tôi đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa).
+                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm tôi đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa).
                         </p>
 
                         <!-- Bản đồ các Thử thách và Giải pháp thực tế của nhóm -->
@@ -650,7 +650,7 @@
                             <div class="p-4 rounded-xl bg-white border border-emerald-100 space-y-2">
                                 <span class="font-bold text-emerald-700 flex items-center gap-1"><i class="fa-solid fa-message"></i> Bước 1: ChatGPT</span>
                                 <p class="text-gray-500 leading-relaxed">
-                                    Dùng prompt 3 lượt (Roleplay giảng viên ULIS kỳ cựu) để biên soạn đoạn hội thoại xin lỗi thầy cô vì nộp bài muộn chân thực, điều chỉnh sắc thái lịch thiệp qua cấu trúc nâng cao <code>I do apologize for...</code> thay vì <code>I'm sorry for...</code>.
+                                    Dùng prompt 3 lượt (Roleplay giảng viên ULIS kỳ cựu) để biên soạn đoạn hội thoại xin lỗi thầy cô vì nộp bài muộn chân thực, điều chỉnh sắc thái lịch thiệp qua cấu trúc nâng cao <code>I do apologize for...</code> thay vị <code>I'm sorry for...</code>.
                                 </p>
                             </div>
                             <div class="p-4 rounded-xl bg-white border border-emerald-100 space-y-2">
@@ -713,10 +713,10 @@
                             </div>
                             <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
                                 <h4 class="font-bold text-emerald-700">5. Làm chủ ngôn ngữ</h4>
-                                <p class="text-gray-500 leading-relaxed">Chỉ dùng AI để rà soát lỗi ngữ pháp nhỏ, luôn giữ vững giọng văn riêng độc bản (authorial voice) của mình.</p>
+                                <p class="text-gray-500 leading-relaxed">Chỉ dùng AI để rà soát lỗi ngữ pháp nhỏ, luôn giữ vững giọng văn riêng độc bản (authorial voice) của chính tôi.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 space-y-1">
-                                <h4 class="font-bold text-indigo-700">6. Phát triển bền vững</h4>
+                                <h4 class="font-bold text-indigo-700">6. Phát triển bền vũg</h4>
                                 <p class="text-gray-500 leading-relaxed">Sử dụng AI để nâng tầm tri thức, không lạm dụng copy-paste để đối phó với các kỳ đánh giá năng lực cốt lõi.</p>
                             </div>
                         </div>
@@ -749,9 +749,9 @@
                 <!-- Cột Trải nghiệm thực tế -->
                 <div class="p-6 rounded-2xl bg-white/60 border border-pink-100 shadow-inner flex flex-col justify-between">
                     <div class="space-y-4">
-                        <h4 class="font-serif text-lg font-bold text-pink-600 italic">Nhật ký học tập của tôi...</h4>
+                        <h4 class="font-serif text-lg font-bold text-pink-600 italic">Nhật ký của tôi...</h4>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Trải nghiệm thực hiện dự án số hóa cá nhân này giúp tôi hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình.
+                            Nhìn lại hành trình thực hiện dự án số hóa cá nhân này giúp tôi hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình.
                         </p>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
                             Từ việc sắp xếp đĩa cứng DUONG CHI (D:), tra cứu 11 tài liệu đến việc phân cấp các prompt Chomsky, tôi đã hình thành tư duy hệ thống và tác phong làm việc vô cùng chuyên nghiệp.
@@ -777,7 +777,7 @@
 
                     <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
                         <h5 class="font-bold text-emerald-700 flex items-center gap-1"><i class="fa-solid fa-rocket"></i> Hành trình tương lai</h5>
-                        <p class="text-gray-600">Tôi mong muốn sẽ tiếp tục cập nhật trang web này như một "CV sống" để thể hiện phong cách cá nhân độc đáo tới các nhà tuyển dụng tương lai.</p>
+                        <p class="text-gray-600">Tiếp tục tối ưu hóa, biến portfolio mộng mơ này thành một CV số cá nhân độc đáo đồng hành cùng tôi trên mọi chặng đường học tập sắp tới tại ULIS.</p>
                     </div>
                 </div>
             </div>
@@ -802,46 +802,43 @@
         const cursor = document.getElementById('cursor');
         const cursorTrail = document.getElementById('cursor-trail');
 
-        if (cursor && cursorTrail) {
-            document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, {
-                    x: e.clientX,
-                    y: e.clientY,
-                    duration: 0.1
-                });
-                gsap.to(cursorTrail, {
-                    x: e.clientX,
-                    y: e.clientY,
-                    duration: 0.25
-                });
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
             });
+            gsap.to(cursorTrail, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.25
+            });
+        });
 
-            // Tạo hiệu ứng click nổ bong bóng nhỏ lấp lánh khi nhấp chuột
-            document.addEventListener('click', (e) => {
-                gsap.to(cursor, { scale: 1.4, duration: 0.1, yoyo: true, repeat: 1 });
+        // Tạo hiệu ứng click nổ bong bóng nhỏ lấp lánh khi nhấp chuột
+        document.addEventListener('click', (e) => {
+            gsap.to(cursor, { scale: 1.4, duration: 0.1, yoyo: true, repeat: 1 });
+            
+            for (let i = 0; i < 3; i++) {
+                const miniBubble = document.createElement('div');
+                miniBubble.className = 'bubble w-3 h-3 absolute z-50';
+                miniBubble.style.left = `${e.pageX}px`;
+                miniBubble.style.top = `${e.pageY}px`;
+                document.body.appendChild(miniBubble);
                 
-                for (let i = 0; i < 3; i++) {
-                    const miniBubble = document.createElement('div');
-                    miniBubble.className = 'bubble w-3 h-3 absolute z-50';
-                    miniBubble.style.left = `${e.pageX}px`;
-                    miniBubble.style.top = `${e.pageY}px`;
-                    document.body.appendChild(miniBubble);
-                    
-                    gsap.to(miniBubble, {
-                        x: (Math.random() - 0.5) * 50,
-                        y: -Math.random() * 70,
-                        opacity: 0,
-                        scale: 1.5,
-                        duration: 1 + Math.random(),
-                        onComplete: () => miniBubble.remove()
-                    });
-                }
-            });
-        }
+                gsap.to(miniBubble, {
+                    x: (Math.random() - 0.5) * 50,
+                    y: -Math.random() * 70,
+                    opacity: 0,
+                    scale: 1.5,
+                    duration: 1 + Math.random(),
+                    onComplete: () => miniBubble.remove()
+                });
+            }
+        });
 
 
         // --- 2. TRÌNH PHÁT NHẠC VÀ ĐỔI 2 BÀI PIANO DU DƯƠNG GỢI GIẤC NGỦ ---
-        // Tích hợp hoàn chỉnh cơ chế Autoplay bền bỉ từ mã nguồn tham chiếu
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const musicBtn = document.getElementById('music-btn');
@@ -853,17 +850,17 @@
         let isPlaying = false;
         let currentTrackIndex = 0;
 
-        // Cấu hình 2 bài Piano ru ngủ nhẹ nhàng, dễ đi vào giấc ngủ
+        // Sử dụng các tệp âm thanh tin cậy cực kỳ du dương để thư giãn đầu óc
         const tracks = [
             {
-                title: "Chopin Nocturne",
-                artist: "Op. 9 No. 2 🌙",
-                src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Nocturne_in_E_flat_major%2C_Op._9_no._2.mp3"
+                title: "On A Piano Cloud",
+                artist: "Liborio Conti ☁️",
+                src: "https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3"
             },
             {
-                title: "Clair de Lune",
-                artist: "Claude Debussy 🌌",
-                src: "https://archive.org/download/ClaudeDebussyClairDeLuneFromTwilight/ClaudeDebussyClairDeLuneFromTwilight.mp3"
+                title: "Chopin - Nocturne",
+                artist: "Op. 9 No. 2 🌙",
+                src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Nocturne_in_E_flat_major%2C_Op._9_no._2.mp3"
             }
         ];
 
@@ -874,12 +871,16 @@
             bgMusic.load();
         }
 
+        // Tăng âm lượng lên mức tối đa
+        bgMusic.volume = 1.0;
+
         function playTrack() {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 vinyl.classList.add('playing');
+                removeAutoplayTriggers();
             }).catch(err => {
-                console.log("Trình duyệt chờ tương tác từ người dùng để phát nhạc.");
+                console.log("Browser blocked autoplay. Awaiting first user gesture/interaction.");
             });
         }
 
@@ -889,21 +890,11 @@
             vinyl.classList.remove('playing');
         }
 
-        // Tải bài hát ban đầu
-        loadTrack(currentTrackIndex);
-
-        // --- CƠ CHẾ TỰ ĐỘNG PHÁT (AUTOPLAY) KHI DUYỆT TRANG ---
-        // Lắng nghe diện rộng các tương tác phổ biến của người dùng để vượt qua rào cản Autoplay của trình duyệt
+        // Tạo chuỗi sự kiện kích hoạt nhạc nền ngay khi người dùng chạm màn hình hoặc di chuyển
         const autoplayEvents = ['click', 'mousedown', 'touchstart', 'keydown', 'scroll', 'mousemove'];
 
         function attemptAutoplay() {
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                vinyl.classList.add('playing');
-                removeAutoplayTriggers();
-            }).catch(error => {
-                // Trình duyệt chặn autoplay, chờ tương tác thủ công
-            });
+            playTrack();
         }
 
         function removeAutoplayTriggers() {
@@ -912,16 +903,18 @@
             });
         }
 
-        // Thiết lập sự kiện kích hoạt nhạc nền lofi piano tự động
+        // Khởi động khi tải xong trang
         window.addEventListener('DOMContentLoaded', () => {
+            loadTrack(currentTrackIndex);
             attemptAutoplay();
+            // Gắn listeners dự phòng
             autoplayEvents.forEach(event => {
                 document.addEventListener(event, attemptAutoplay, { once: true, passive: true });
             });
         });
 
-        // Thiết lập sự kiện điều khiển nút bấm thủ công
-        musicBtn.addEventListener('click', () => {
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             if (!isPlaying) {
                 playTrack();
             } else {
@@ -980,10 +973,10 @@
         // --- 4. TƯƠNG TÁC EXPAND/COLLAPSE CỦA CÂY THƯ MỤC (EX 1) ---
         function toggleFolder(folderId) {
             const folder = document.getElementById(folderId);
-            if (folder && folder.classList.contains('hidden')) {
+            if (folder.classList.contains('hidden')) {
                 folder.classList.remove('hidden');
                 gsap.fromTo(folder, { opacity: 0, height: 0 }, { opacity: 1, height: 'auto', duration: 0.3 });
-            } else if (folder) {
+            } else {
                 gsap.to(folder, { 
                     opacity: 0, 
                     height: 0, 
