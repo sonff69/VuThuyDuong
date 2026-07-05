@@ -175,7 +175,7 @@
                     <i class="fa-brands fa-google-drive"></i> <span class="hidden sm:inline">Bài tập trên GG Drive</span>
                 </a>
                 
-                <!-- Bộ phát nhạc 1 bài Piano ru ngủ -->
+                <!-- Bộ phát nhạc 1 bài Piano ru ngủ tự phát -->
                 <div class="flex items-center bg-white/70 backdrop-blur-md rounded-full px-3 py-1 border border-pink-100 shadow-sm gap-2">
                     <button id="music-btn" class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center relative cursor-pointer focus:outline-none" title="Phát/Tạm dừng">
                         <div class="music-vinyl w-7 h-7 rounded-full bg-gray-800 border border-pink-300 flex items-center justify-center text-[10px] text-white" id="vinyl">
@@ -710,7 +710,7 @@
                                 <p class="text-gray-500 leading-relaxed">Chỉ dùng AI để rà soát lỗi ngữ pháp nhỏ, luôn giữ vững giọng văn riêng độc bản (authorial voice) của chính mình.</p>
                             </div>
                             <div class="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 space-y-1">
-                                <h4 class="font-bold text-indigo-700">6. Phát triển bền vững</h4>
+                                <h4 class="font-bold text-indigo-700">6. Phát triển bền vũg</h4>
                                 <p class="text-gray-500 leading-relaxed">Sử dụng AI với mục đích nâng cao hiệu suất học tập, tuyệt đối không dùng AI để đối phó với các kỳ thi hoặc bài đánh giá năng lực cốt lõi.</p>
                             </div>
                         </div>
@@ -832,31 +832,36 @@
         });
 
 
-        // --- 2. TRÌNH PHÁT NHẠC PIANO RU NGỦ TỰ ĐỘNG PHÁT ---
+        // --- 2. TRÌNH PHÁT NHẠC PIANO TỰ ĐỘNG PHÁT ---
         const musicBtn = document.getElementById('music-btn');
         const vinyl = document.getElementById('vinyl');
         const bgMusic = document.getElementById('bg-music');
-        const songTitle = document.getElementById('song-title');
-        const songArtist = document.getElementById('song-artist');
 
         let isPlaying = false;
 
+        // Hàm phát nhạc
         function playTrack() {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 vinyl.classList.add('playing');
+                // Gỡ bỏ toàn bộ sự kiện kích hoạt rà soát tương tác để tối ưu bộ nhớ sau khi nhạc phát thành công
+                document.removeEventListener('click', playTrack);
+                document.removeEventListener('mousemove', playTrack);
+                document.removeEventListener('touchstart', playTrack);
+                document.removeEventListener('scroll', playTrack);
             }).catch(err => {
-                console.log("Trình duyệt yêu cầu click tương tác đầu tiên để kích hoạt âm thanh tự phát.");
+                console.log("Hệ điều hành yêu cầu người dùng nhấp hoặc tương tác để khởi chạy âm thanh.");
             });
         }
 
+        // Hàm tạm dừng nhạc
         function pauseTrack() {
             bgMusic.pause();
             isPlaying = false;
             vinyl.classList.remove('playing');
         }
 
-        // Bấm đĩa than để chuyển đổi bật/tắt thủ công
+        // Nhấp trực tiếp đĩa để Bật/Tắt thủ công bất cứ lúc nào
         musicBtn.addEventListener('click', () => {
             if (!isPlaying) {
                 playTrack();
@@ -943,15 +948,22 @@
             }
         }
 
+        // Tự khởi chạy khi toàn bộ tài nguyên tải xong
         window.addEventListener('load', () => {
             createBackgroundBubbles();
             
-            // Khởi tạo hoạt ảnh ban đầu
+            // Khởi tạo hoạt ảnh ban đầu của giao diện giới thiệu
             gsap.from("#intro-text", { opacity: 0, x: -40, duration: 0.8, ease: "power2.out" });
             gsap.from("#intro-card", { opacity: 0, x: 40, duration: 0.8, ease: "power2.out" });
             
-            // Tự động phát nhạc khi load xong page (Thích ứng chính sách bảo mật trình duyệt)
+            // 1. Gửi lệnh yêu cầu phát nhạc tự động lập tức
             playTrack();
+
+            // 2. Dự phòng: Nếu trình duyệt chặn, nhạc sẽ tự động khởi chạy êm dịu ngay khi người dùng có hành động di chuột, chạm hay cuộn trang lần đầu
+            document.addEventListener('click', playTrack);
+            document.addEventListener('mousemove', playTrack);
+            document.addEventListener('touchstart', playTrack);
+            document.addEventListener('scroll', playTrack);
         });
     </script>
 </body>
