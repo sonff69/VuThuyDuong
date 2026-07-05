@@ -189,12 +189,12 @@
                         <i class="fa-solid fa-forward"></i>
                     </button>
                     <div class="text-[10px] text-gray-500 max-w-[110px] leading-tight hidden sm:block">
-                        <span class="font-bold text-pink-500 block truncate" id="song-title">Chopin Nocturne</span>
-                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Op. 9 No. 2 🌙</span>
+                        <span class="font-bold text-pink-500 block truncate" id="song-title">Tranquil Piano</span>
+                        <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Calm Sleep 🌙</span>
                     </div>
                 </div>
-                <!-- Nhạc nền Piano mộng mơ -->
-                <audio id="bg-music" loop></audio>
+                <!-- Nhạc nền Piano mộng mơ (Không dùng loop cứng để xử lý chuyển bài bằng JS) -->
+                <audio id="bg-music"></audio>
             </div>
         </div>
     </nav>
@@ -838,7 +838,7 @@
         });
 
 
-        // --- 2. TRÌNH PHÁT NHẠC 2 BÀI PIANO RU NGỦ CỰC KỲ DU DƯƠNG ---
+        // --- 2. TRÌNH PHÁT NHẠC PIANO CHUẨN XÁC & ỔN ĐỊNH ---
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         const musicBtn = document.getElementById('music-btn');
@@ -850,17 +850,17 @@
         let isPlaying = false;
         let currentTrackIndex = 0;
 
-        // Định cấu hình nguồn nhạc từ các server chính thống, bền vững của Wikimedia và Archive.org
+        // Sử dụng các liên kết lưu trữ trực tiếp từ Internet Archive cực kỳ ổn định, hỗ trợ CORS hoàn hảo
         const tracks = [
             {
-                title: "Chopin Nocturne",
-                artist: "Op. 9 No. 2 🌙",
-                src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Nocturne_in_E_flat_major%2C_Op._9_no._2.mp3"
+                title: "Tranquil Piano",
+                artist: "Calm Sleep 🌙",
+                src: "https://archive.org/download/100PianoMusicForRelaxationSleepZen/12%20Calm%20-%20Tranquil%20Piano.mp3"
             },
             {
-                title: "Clair de Lune",
-                artist: "Claude Debussy 🌌",
-                src: "https://archive.org/download/ClaudeDebussyClairDeLuneFromTwilight/ClaudeDebussyClairDeLuneFromTwilight.mp3"
+                title: "Quiet Piano",
+                artist: "Deep Relax 🌌",
+                src: "https://archive.org/download/100PianoMusicForRelaxationSleepZen/25%20Relaxation%20-%20Quiet%20Piano.mp3"
             }
         ];
 
@@ -876,7 +876,9 @@
                 isPlaying = true;
                 vinyl.classList.add('playing');
             }).catch(err => {
-                console.log("Trình duyệt yêu cầu click để bắt đầu phát nhạc.");
+                console.log("Phát nhạc yêu cầu người dùng tương tác trước.");
+                isPlaying = false;
+                vinyl.classList.remove('playing');
             });
         }
 
@@ -886,7 +888,7 @@
             vinyl.classList.remove('playing');
         }
 
-        // Tải bài hát ban đầu mà không tự ý phát tự động tránh lỗi của trình duyệt
+        // Khởi tạo bài học nhạc nền ban đầu
         loadTrack(currentTrackIndex);
 
         musicBtn.addEventListener('click', () => {
@@ -901,28 +903,25 @@
             e.stopPropagation();
             currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) {
-                playTrack();
-            } else {
-                // Tự động phát khi người dùng chủ động chuyển bài
-                playTrack();
-            }
+            playTrack();
         });
 
         nextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) {
-                playTrack();
-            } else {
-                // Tự động phát khi người dùng chủ động chuyển bài
-                playTrack();
-            }
+            playTrack();
+        });
+
+        // Tự động chuyển bài khi kết thúc bản nhạc
+        bgMusic.addEventListener('ended', () => {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+            playTrack();
         });
 
 
-        // --- 3. HIỆU ỨNG CHUYỂN ĐỔI TAB BÀI TẬP VÀ HIỆU ỨNG GSAP ---
+        // --- 3. HIỆU ỨNG CHUYỂF ĐỔI TAB BÀI TẬP VÀ HIỆU ỨNG GSAP ---
         function switchTab(tabIndex) {
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => {
