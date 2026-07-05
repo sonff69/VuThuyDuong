@@ -61,26 +61,10 @@
         }
 
         body {
-            /* Giữ chuột hệ thống để tránh lỗi mất chuột hoàn toàn */
+            /* Giữ chuột hệ thống hoạt động ổn định */
             overflow-x: hidden;
             background: linear-gradient(135deg, #FFF0F5 0%, #F3E5F5 50%, #E1F5FE 100%);
             background-attachment: fixed;
-        }
-
-        /* Hiệu ứng kính mờ ảo diệu (Glassmorphism) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px 0 rgba(223, 180, 230, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px 0 rgba(223, 180, 230, 0.25);
-            background: rgba(255, 255, 255, 0.75);
         }
 
         /* Bong bóng pastel đuôi chuột dịu nhẹ (Trail) */
@@ -105,6 +89,22 @@
             z-index: 9998;
             transform: translate(-50%, -50%);
             transition: transform 0.05s linear;
+        }
+
+        /* Hiệu ứng kính mờ ảo diệu (Glassmorphism) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(223, 180, 230, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px 0 rgba(223, 180, 230, 0.25);
+            background: rgba(255, 255, 255, 0.75);
         }
 
         /* Máy phát nhạc xoay tròn */
@@ -144,7 +144,7 @@
 </head>
 <body class="text-gray-700">
 
-    <!-- Custom Bubble Pointer Trail -->
+    <!-- Custom Sparkle Cursor Trail -->
     <div class="magic-cursor" id="cursor"></div>
     <div class="magic-cursor-trail" id="cursor-trail"></div>
 
@@ -160,7 +160,7 @@
         <div class="glass-card px-6 py-4 flex items-center justify-between">
             <a href="#intro" class="font-serif text-lg md:text-2xl font-bold text-pink-500 tracking-wider flex items-center gap-2">
                 <i class="fa-solid fa-sparkles text-dreamyPink animate-pulse"></i>
-                Thùy Dương's Space
+                Thùy Dương's Portfolio
             </a>
             <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-600">
                 <a href="#intro" class="hover:text-pink-400 transition-colors flex items-center gap-1"><i class="fa-solid fa-heart"></i> Giới thiệu</a>
@@ -217,7 +217,7 @@
                 </h1>
                 
                 <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                    Xin chào! Tớ là một tân sinh viên năm nhất chuyên ngành <strong class="text-pink-500 font-semibold">Ngôn ngữ và Văn hóa Anh</strong> dưới mái trường <strong class="text-purple-500 font-semibold">Đại học Ngoại ngữ - ĐHQGHN (ULIS)</strong>. Là một người yêu ngôn ngữ nhưng luôn khao khát làm chủ công nghệ số học hiện đại, Portfolio này chính là không gian lưu trữ trực quan toàn bộ thành quả thực hành của tớ trong học phần <strong class="text-blue-500 font-semibold">Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong>.
+                    Xin chào! Tôi là sinh viên năm nhất chuyên ngành <strong class="text-pink-500 font-semibold">Ngôn ngữ và Văn hóa Anh</strong> dưới mái trường <strong class="text-purple-500 font-semibold">Đại học Ngoại ngữ - ĐHQGHN (ULIS)</strong>. Là một người yêu thích nghiên cứu ngôn ngữ học ứng dụng và luôn mong muốn làm chủ công nghệ số hóa hiện đại, Portfolio này chính là không gian lưu trữ trực quan toàn bộ thành quả thực hành của tôi trong học phần <strong class="text-blue-500 font-semibold">Nhập môn Công nghệ số và Ứng dụng Trí tuệ Nhân tạo</strong>.
                 </p>
 
                 <!-- Thẻ sinh viên chi tiết -->
@@ -283,9 +283,9 @@
                         <i class="fa-solid fa-bullseye"></i> Mục tiêu ngắn hạn (1 - 2 năm đầu tại ULIS)
                     </h3>
                     <ul class="text-xs md:text-sm text-gray-600 space-y-2 list-disc list-inside">
-                        <li>Ứng dụng tốt công nghệ số để thiết lập hệ thống lưu trữ bài học tự động hóa hiệu quả.</li>
-                        <li>Hiểu và viết câu lệnh prompt chuẩn mực, phục vụ đắc lực cho các tác vụ nghiên cứu dịch thuật và tự rèn luyện kỹ năng viết học thuật.</li>
-                        <li>Cân bằng tính chính trực, không lạm dụng AI tạo sinh nhằm phát huy bản sắc cá nhân nguyên bản.</li>
+                        <li>Ứng dụng tối ưu công nghệ số để thiết lập hệ thống lưu trữ bài học tự động hóa hiệu quả.</li>
+                        <li>Hiểu sâu và viết câu lệnh prompt chuẩn mực, phục vụ đắc lực cho các tác vụ nghiên cứu dịch thuật và tự rèn luyện kỹ năng viết học thuật.</li>
+                        <li>Cân bằng tính chính trực, không lạm dụng AI tạo sinh nhằm phát huy bản sắc cá nhân nguyên bản của tôi.</li>
                     </ul>
                 </div>
                 <div class="glass-card p-6 space-y-4 bg-gradient-to-r from-purple-50/10 to-blue-50/10">
@@ -312,7 +312,7 @@
                     Chi Tiết 6 Sản Phẩm Thực Hành Đã Làm
                 </h2>
                 <p class="text-xs text-gray-500 max-w-lg mx-auto">
-                    Dưới đây là toàn bộ báo cáo, tư liệu thực tế do chính tớ tự thiết lập và hoàn thiện xuyên suốt học kỳ vừa qua.
+                    Dưới đây là toàn bộ báo cáo, tư liệu thực tế do chính tôi tự thiết lập và hoàn thiện xuyên suốt học kỳ vừa qua.
                 </p>
             </div>
 
@@ -349,14 +349,14 @@
                                 <h3 class="font-serif text-xl md:text-2xl font-bold text-gray-800">Bài tập 1: Thao tác cơ bản với tệp tin và thư mục</h3>
                                 <p class="text-xs text-pink-500 font-bold uppercase tracking-wider mt-1">Mục tiêu: Tổ chức không gian đĩa vật lý gọn gàng, hệ thống hóa thư mục</p>
                             </div>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-bold rounded-full self-start md:self-auto">Thực hành trên máy</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-bold rounded-full self-start md:self-auto">Mục 1.4</span>
                         </div>
                         
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Ở bài thực hành đầu tiên, tớ đã thực hiện thiết lập cấu trúc thư mục lưu trữ logic trực tiếp trên đĩa cứng hệ thống <code>DUONG CHI (D:)</code> để quản lý toàn bộ học liệu học phần. Quy trình thao tác được ghi nhận qua các bước tiêu chuẩn: tạo thư mục mẹ, khởi tạo file ghi chú, di chuyển tệp tin, xóa vĩnh viễn và khôi phục từ Thùng rác.
+                            Ở bài thực hành đầu tiên, tôi đã thực hiện thiết lập cấu trúc thư mục lưu trữ logic trực tiếp trên đĩa cứng hệ thống <code>DUONG CHI (D:)</code> để quản lý toàn bộ học liệu học phần. Quy trình thao tác được ghi nhận qua các bước tiêu chuẩn: tạo thư mục mẹ, khởi tạo file ghi chú, di chuyển tệp tin, xóa vĩnh viễn và khôi phục từ Thùng rác.
                         </p>
 
-                        <!-- Mô phỏng Cây Thư Mục Tương Tác thực tế của Dương -->
+                        <!-- Mô phỏng Cây Thư Mục Tương Tác thực tế của Tôi -->
                         <div class="bg-gray-900 rounded-2xl p-6 text-emerald-400 font-mono text-xs md:text-sm shadow-xl relative overflow-hidden border border-gray-700">
                             <div class="absolute top-2 right-4 flex gap-2">
                                 <span class="w-3 h-3 rounded-full bg-red-400 block"></span>
@@ -398,7 +398,7 @@
                         <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-100 text-xs md:text-sm text-emerald-800 space-y-1">
                             <h4 class="font-bold flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Bài học thực nghiệm:</h4>
                             <p class="text-xs">
-                                Việc phân biệt rõ cơ chế xóa thường (chuyển vào Recycle Bin) và xóa vĩnh viễn (Shift + Delete thay đổi trực tiếp bảng FAT/địa chỉ con trỏ tệp tin mà không ghi đè dữ liệu vật lý ngay lập tức) giúp tớ bảo vệ dữ liệu học tập cá nhân an toàn, tránh rủi ro mất mát dữ liệu.
+                                Việc phân biệt rõ cơ chế xóa thường (chuyển vào Recycle Bin) và xóa vĩnh viễn (Shift + Delete thay đổi trực tiếp bảng FAT/địa chỉ con trỏ tệp tin mà không ghi đè dữ liệu vật lý ngay lập tức) giúp tôi bảo vệ dữ liệu học tập cá nhân an toàn, tránh rủi ro mất mát dữ liệu.
                             </p>
                         </div>
                     </div>
@@ -416,7 +416,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Tớ đã áp dụng 4 chuỗi toán tử nâng cao <code>AND</code>, <code>OR</code>, <code>site:</code>, <code>filetype:</code> cùng dấu ngoặc kép <code>""</code> trên các cơ sở dữ liệu lớn (Scopus, Google Scholar, SpringerLink, Oxford Academic) để lọc ra **11 nguồn tài liệu nền tảng** phản ánh đúng tác động của Trí tuệ nhân tạo đối với quá trình Dịch thuật học thuật và Thụ đắc ngôn ngữ thứ hai (SLA).
+                            Tôi đã áp dụng 4 chuỗi toán tử nâng cao <code>AND</code>, <code>OR</code>, <code>site:</code>, <code>filetype:</code> cùng dấu ngoặc kép <code>""</code> trên các cơ sở dữ liệu lớn (Scopus, Google Scholar, SpringerLink, Oxford Academic) để lọc ra **11 nguồn tài liệu nền tảng** phản ánh đúng tác động của Trí tuệ nhân tạo đối với quá trình Dịch thuật học thuật và Thụ đắc ngôn ngữ thứ hai (SLA).
                         </p>
 
                         <!-- Thống kê cú pháp áp dụng -->
@@ -539,7 +539,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Trực tiếp thực nghiệm so sánh chất lượng phản hồi từ AI qua mô hình **C.R.E.A** (Context - Restriction - Exemplar - Action-oriented). Dưới đây là ma trận 3 tác vụ học tập điển hình mà tớ đã thiết kế cho sinh viên Ngôn ngữ Anh.
+                            Trực tiếp thực nghiệm so sánh chất lượng phản hồi từ AI qua mô hình **C.R.E.A** (Context - Restriction - Exemplar - Action-oriented). Dưới đây là ma trận 3 tác vụ học tập điển hình mà tôi đã thiết kế cho sinh viên Ngôn ngữ Anh.
                         </p>
 
                         <!-- Bộ 3 Tác Vụ và sự nâng cấp Prompt -->
@@ -560,7 +560,7 @@
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
                                     <div class="p-2 bg-white rounded border border-indigo-50"><strong class="text-rose-400">Cơ bản:</strong> "Giải thích Overfitting là gì."</div>
                                     <div class="p-2 bg-white rounded border border-indigo-50"><strong class="text-amber-500">Cải tiến:</strong> "Hãy giải thích khái niệm Overfitting cho sinh viên năm nhất ngành Ngôn ngữ học máy tính. Cho ví dụ minh họa."</div>
-                                    <div class="p-2 bg-emerald-50 rounded border border-emerald-100"><strong class="text-emerald-600">Nâng cao (Flipped Interaction + Analogy):</strong> "Bạn là Giáo sư KH Dữ liệu. Hãy giải thích 'Overfitting' cho người chưa biết gì về toán. Sử dụng ẩn dụ ELI5 (Học vẹt để đi thi), phân tích bản chất kỹ thuật, 2 giải pháp. Sau đó, đặt câu hỏi kiểm tra nhanh để xem tớ hiểu chưa. Đợi phản hồi."</div>
+                                    <div class="p-2 bg-emerald-50 rounded border border-emerald-100"><strong class="text-emerald-600">Nâng cao (Flipped Interaction + Analogy):</strong> "Bạn là Giáo sư KH Dữ liệu. Hãy giải thích 'Overfitting' cho người chưa biết gì về toán. Sử dụng ẩn dụ ELI5 (Học vẹt để đi thi), phân tích bản chất kỹ thuật, 2 giải pháp. Sau đó, đặt câu hỏi kiểm tra nhanh để xem tôi hiểu chưa. Đợi phản hồi."</div>
                                 </div>
                             </div>
 
@@ -595,7 +595,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm tớ đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa).
+                            Để triển khai dự án nhóm xây dựng cẩm nang phương pháp học tập số cho tân sinh viên ULIS, nhóm tôi đã liên kết đồng bộ bộ 4 công cụ tối tân: <strong>Trello</strong> (Quản lý tiến độ), <strong>Discord</strong> (Giao tiếp tích hợp Webhook thông báo thời gian thực), <strong>Google Docs</strong> (Đồng soạn thảo) và <strong>Google Drive</strong> (Lưu trữ tệp chuẩn hóa).
                         </p>
 
                         <!-- Bản đồ các Thử thách và Giải pháp thực tế của nhóm -->
@@ -642,7 +642,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Tớ đã đóng vai trò là "Tổng đạo diễn" tích hợp sức mạnh của 3 công cụ AI tạo sinh hàng đầu: <strong>ChatGPT (GPT-3.5)</strong> soạn thảo nội dung học thuật, <strong>Canva AI</strong> định hình bố cục khung infographic chuẩn APA và <strong>DALL-E 3</strong> để phác họa nhân vật sinh viên Việt Nam năng động dưới mái trường ULIS.
+                            Tôi đã đóng vai trò là "Tổng đạo diễn" tích hợp sức mạnh của 3 công cụ AI tạo sinh hàng đầu: <strong>ChatGPT (GPT-3.5)</strong> soạn thảo nội dung học thuật, <strong>Canva AI</strong> định hình bố cục khung infographic chuẩn APA và <strong>DALL-E 3</strong> để phác họa nhân vật sinh viên Việt Nam năng động dưới mái trường ULIS.
                         </p>
 
                         <!-- Quy trình thực hành thực tế -->
@@ -690,7 +690,7 @@
                         </div>
 
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Sau khi phân tích kỹ lưỡng Khung hướng dẫn chiến lược về ứng dụng AI của ĐHQGHN, tớ nhận thấy nhà trường không cấm đoán cực đoan mà tập trung giáo dục ý thức. Tớ đã thiết lập riêng **6 nguyên tắc đạo đức số cá nhân** để định hình phong cách nghiên cứu lành mạnh.
+                            Sau khi phân tích kỹ lưỡng Khung hướng dẫn chiến lược về ứng dụng AI của ĐHQGHN, tôi nhận thấy nhà trường không cấm đoán cực đoan mà tập trung giáo dục ý thức. Tôi đã thiết lập riêng **6 nguyên tắc đạo đức số cá nhân** để định hình phong cách nghiên cứu lành mạnh.
                         </p>
 
                         <!-- 6 Nguyên tắc từ Infographic TikZ của bạn -->
@@ -749,12 +749,12 @@
                 <!-- Cột Trải nghiệm thực tế -->
                 <div class="p-6 rounded-2xl bg-white/60 border border-pink-100 shadow-inner flex flex-col justify-between">
                     <div class="space-y-4">
-                        <h4 class="font-serif text-lg font-bold text-pink-600 italic">Nhật ký của Dương...</h4>
+                        <h4 class="font-serif text-lg font-bold text-pink-600 italic">Nhật ký học tập của tôi...</h4>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Trải nghiệm thực hiện dự án số hóa cá nhân này giúp tớ hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình.
+                            Trải nghiệm thực hiện dự án số hóa cá nhân này giúp tôi hiểu rằng, công nghệ AI không phải là chiếc "đũa thần" tự tạo ra tri thức, mà nó chính là chiếc "kính hiển vi" tinh nhạy hỗ trợ con người phóng to năng lực của mình.
                         </p>
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-                            Từ việc sắp xếp đĩa cứng DUONG CHI (D:), tra cứu 11 tài liệu đến việc phân cấp các prompt Chomsky, tớ đã hình thành tư duy hệ thống và tác phong làm việc vô cùng chuyên nghiệp.
+                            Từ việc sắp xếp đĩa cứng DUONG CHI (D:), tra cứu 11 tài liệu đến việc phân cấp các prompt Chomsky, tôi đã hình thành tư duy hệ thống và tác phong làm việc vô cùng chuyên nghiệp.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-pink-100 text-xs text-gray-400 font-mono flex justify-between">
@@ -772,12 +772,12 @@
                     
                     <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-100 space-y-1">
                         <h5 class="font-bold text-blue-700 flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> Thử thách lớn nhất đã vượt qua</h5>
-                        <p class="text-gray-600">Đấu tranh với thói quen ỷ lại công nghệ (digital laziness) khi viết bài luận bảo tồn ngôn ngữ bản địa, rèn luyện thói quen tự biên soạn 100% nội dung chi tiết.</p>
+                        <p class="text-gray-600">Kiểm soát thói quen ỷ lại công nghệ khi viết bài luận bảo tồn ngôn ngữ bản địa, rèn luyện thói quen tự biên soạn chi tiết các nội dung học thuật.</p>
                     </div>
 
                     <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 space-y-1">
                         <h5 class="font-bold text-emerald-700 flex items-center gap-1"><i class="fa-solid fa-rocket"></i> Hành trình tương lai</h5>
-                        <p class="text-gray-600">Tiếp tục tối ưu hóa, biến portfolio mộng mơ này thành một CV số cá nhân độc đáo đồng hành cùng tớ trên mọi chặng đường học tập sắp tới tại ULIS.</p>
+                        <p class="text-gray-600">Tôi mong muốn sẽ tiếp tục cập nhật trang web này như một "CV sống" để thể hiện phong cách cá nhân độc đáo tới các nhà tuyển dụng tương lai.</p>
                     </div>
                 </div>
             </div>
@@ -876,7 +876,7 @@
                 isPlaying = true;
                 vinyl.classList.add('playing');
             }).catch(err => {
-                console.log("Trình duyệt yêu cầu click để bắt đầu phát nhạc.");
+                console.log("Trình duyệt yêu cầu tương tác để phát nhạc.");
             });
         }
 
@@ -904,7 +904,6 @@
             if (isPlaying) {
                 playTrack();
             } else {
-                // Tự động phát khi người dùng chủ động chuyển bài
                 playTrack();
             }
         });
@@ -916,7 +915,6 @@
             if (isPlaying) {
                 playTrack();
             } else {
-                // Tự động phát khi người dùng chủ động chuyển bài
                 playTrack();
             }
         });
