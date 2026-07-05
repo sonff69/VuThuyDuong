@@ -61,7 +61,7 @@
         }
 
         body {
-            cursor: none; /* Sử dụng con trỏ tùy biến */
+            /* Giữ chuột hệ thống để tránh lỗi mất chuột hoàn toàn */
             overflow-x: hidden;
             background: linear-gradient(135deg, #FFF0F5 0%, #F3E5F5 50%, #E1F5FE 100%);
             background-attachment: fixed;
@@ -83,23 +83,23 @@
             background: rgba(255, 255, 255, 0.75);
         }
 
-        /* Con trỏ chuột lấp lánh */
+        /* Bong bóng pastel đuôi chuột dịu nhẹ (Trail) */
         .magic-cursor {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,183,178,1) 0%, rgba(199,206,234,0.4) 100%);
+            background: radial-gradient(circle, rgba(255,183,178,0.6) 0%, rgba(199,206,234,0.1) 100%);
             position: fixed;
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
-            transition: width 0.15s, height 0.15s;
+            transition: width 0.1s, height 0.1s;
         }
         .magic-cursor-trail {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            background: #C7CEEA;
+            background: rgba(167, 139, 250, 0.4);
             position: fixed;
             pointer-events: none;
             z-index: 9998;
@@ -144,7 +144,7 @@
 </head>
 <body class="text-gray-700">
 
-    <!-- Custom Sparkle Cursor -->
+    <!-- Custom Bubble Pointer Trail -->
     <div class="magic-cursor" id="cursor"></div>
     <div class="magic-cursor-trail" id="cursor-trail"></div>
 
@@ -177,18 +177,18 @@
                 
                 <!-- Bộ phát nhạc 2 bài Piano ngủ ngon -->
                 <div class="flex items-center bg-white/70 backdrop-blur-md rounded-full px-3 py-1 border border-pink-100 shadow-sm gap-2">
-                    <button id="prev-btn" class="text-[10px] text-pink-400 hover:text-pink-600 transition-colors" title="Bài trước">
+                    <button id="prev-btn" class="text-[10px] text-pink-400 hover:text-pink-600 transition-colors p-1" title="Bài trước">
                         <i class="fa-solid fa-backward"></i>
                     </button>
-                    <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center relative cursor-pointer" id="music-btn" title="Phát/Tạm dừng">
+                    <button id="music-btn" class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center relative cursor-pointer focus:outline-none" title="Phát/Tạm dừng">
                         <div class="music-vinyl w-7 h-7 rounded-full bg-gray-800 border border-pink-300 flex items-center justify-center text-[10px] text-white" id="vinyl">
                             🎹
                         </div>
-                    </div>
-                    <button id="next-btn" class="text-[10px] text-pink-400 hover:text-pink-600 transition-colors" title="Bài tiếp">
+                    </button>
+                    <button id="next-btn" class="text-[10px] text-pink-400 hover:text-pink-600 transition-colors p-1" title="Bài tiếp">
                         <i class="fa-solid fa-forward"></i>
                     </button>
-                    <div class="text-[10px] text-gray-500 max-w-[100px] leading-tight hidden sm:block">
+                    <div class="text-[10px] text-gray-500 max-w-[110px] leading-tight hidden sm:block">
                         <span class="font-bold text-pink-500 block truncate" id="song-title">Chopin Nocturne</span>
                         <span class="text-[8px] text-gray-400 block truncate" id="song-artist">Op. 9 No. 2 🌙</span>
                     </div>
@@ -469,7 +469,7 @@
                                         <td class="p-3 font-bold">4</td>
                                         <td class="p-3"><strong>Brown và cs (2020)</strong><br><span class="text-[10px] text-gray-400">NeurIPS Conference</span></td>
                                         <td class="p-3">Kỷ yếu hội nghị</td>
-                                        <td class="p-3"><strong>Ưu:</strong> Tài liệu nền tảng về GPT-3, trích dẫn cực lớn (&gt;10k).<br><strong>Nhược:</strong> Thiên về khoa học máy tính hơn là ngôn ngữ học ứng dụng.</td>
+                                        <td class="p-3"><strong>Ưu:</strong> Tài liệu nền tảng về GPT-3, trích dẫn cực lớn.<br><strong>Nhược:</strong> Thiên về khoa học máy tính hơn là ngôn ngữ học ứng dụng.</td>
                                         <td class="p-3 text-amber-500">⭐⭐⭐⭐⭐ <span class="text-[10px] text-gray-400">(5/5)</span></td>
                                     </tr>
                                     <tr class="hover:bg-purple-50/20 transition-all">
@@ -797,7 +797,8 @@
 
     <!-- INTERACTIVE JAVASCRIPT & GSAP ANIMATIONS -->
     <script>
-        // --- 1. CON TRỎ CHUỘT MA THUẬT VÀ HIỆU ỨNG TRUY ĐUỔI ---
+        // --- 1. HIỆU ỨNG TRUY ĐUỔI CHUỘT TRAIL PASTEL ---
+        // Giữ chuột hệ thống hoạt động bình thường, trail bám đuôi mềm mại phía sau
         const cursor = document.getElementById('cursor');
         const cursorTrail = document.getElementById('cursor-trail');
 
@@ -837,63 +838,36 @@
         });
 
 
-        // --- 2. TRÌNH PHÁT NHẠC VÀ ĐỔI 2 BÀI PIANO DU DƯƠNG GỢI GIẤC NGỦ ---
+        // --- 2. TRÌNH PHÁT NHẠC 2 BÀI PIANO RU NGỦ CỰC KỲ DU DƯƠNG ---
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         const musicBtn = document.getElementById('music-btn');
         const vinyl = document.getElementById('vinyl');
         const bgMusic = document.getElementById('bg-music');
         const songTitle = document.getElementById('song-title');
-        
-        // Cấu hình 2 bài Piano ru ngủ tinh tế và du dương nhất
-        const pianoTracks = [
+        const songArtist = document.getElementById('song-artist');
+
+        let isPlaying = false;
+        let currentTrackIndex = 0;
+
+        // Định cấu hình nguồn nhạc từ các server chính thống, bền vững của Wikimedia và Archive.org
+        const tracks = [
             {
-                name: "Chopin - Nocturne Op.9 No.2 🌙",
-                url: "https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3" // Bản thu âm On A Piano Cloud êm dịu, không bản quyền của Liborio Conti
+                title: "Chopin Nocturne",
+                artist: "Op. 9 No. 2 🌙",
+                src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Nocturne_in_E_flat_major%2C_Op._9_no._2.mp3"
             },
             {
-                ...
-                name: "Debussy - Clair de Lune 🌌",
-                url: "https://archive.org/download/ClaudeDebussyClairDeLuneFromTwilight/ClaudeDebussyClairDeLuneFromTwilight.mp3"
+                title: "Clair de Lune",
+                artist: "Claude Debussy 🌌",
+                src: "https://archive.org/download/ClaudeDebussyClairDeLuneFromTwilight/ClaudeDebussyClairDeLuneFromTwilight.mp3"
             }
         ];
-        let currentTrackIndex = 0;
-        let isPlaying = false;
-
-        // Tải trước bài đầu tiên
-        bgMusic.src = themeMusicSrc(0);
-
-        function themeMusicSrc(index) {
-            // Danh sách nhạc mượt mà không bản quyền
-            const links = [
-                "https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3",
-                "https://archive.org/download/ClaudeDebussyClairDeLuneFromTwilight/ClaudeDebussyClairDeLuneFromTwilight.mp3"
-            ];
-            return links[index];
-        }
-
-        bgMusic.src = themeColorsUrl(0);
-
-        function themeColorsUrl(index) {
-            const list = [
-                "https://www.no-copyright-music.com/wp-content/uploads/2021/09/OnAPianoCloud.mp3",
-                "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Chopin-nocturne-op-9-no-2.mp3"
-            ];
-            return list[index];
-        }
-
-        const songLabels = [
-            { title: "Piano Cloud", artist: "Liborio Conti ☁️" },
-            { title: "Chopin Nocturne", artist: "Op. 9 No. 2 🌙" }
-        ];
-
-        const songTitleEl = document.getElementById('song-title');
-        const songArtistEl = document.getElementById('song-artist');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
 
         function loadTrack(index) {
-            bgMusic.src = themeColorsUrl(index);
-            songTitleEl.innerText = songLabels[index].title;
-            songArtistEl.innerText = songLabels[index].artist;
+            bgMusic.src = tracks[index].src;
+            songTitle.innerText = tracks[index].title;
+            songArtist.innerText = tracks[index].artist;
             bgMusic.load();
         }
 
@@ -902,7 +876,7 @@
                 isPlaying = true;
                 vinyl.classList.add('playing');
             }).catch(err => {
-                console.log("Trình duyệt yêu cầu tương tác để phát nhạc.");
+                console.log("Trình duyệt yêu cầu click để bắt đầu phát nhạc.");
             });
         }
 
@@ -911,6 +885,9 @@
             isPlaying = false;
             vinyl.classList.remove('playing');
         }
+
+        // Tải bài hát ban đầu mà không tự ý phát tự động tránh lỗi của trình duyệt
+        loadTrack(currentTrackIndex);
 
         musicBtn.addEventListener('click', () => {
             if (!isPlaying) {
@@ -922,20 +899,27 @@
 
         prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            currentTrackIndex = (currentTrackIndex - 1 + songLabels.length) % songLabels.length;
+            currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) playTrack();
+            if (isPlaying) {
+                playTrack();
+            } else {
+                // Tự động phát khi người dùng chủ động chuyển bài
+                playTrack();
+            }
         });
 
         nextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            currentTrackIndex = (currentTrackIndex + 1) % songLabels.length;
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
             loadTrack(currentTrackIndex);
-            if (isPlaying) playTrack();
+            if (isPlaying) {
+                playTrack();
+            } else {
+                // Tự động phát khi người dùng chủ động chuyển bài
+                playTrack();
+            }
         });
-
-        // Tải bài hát ban đầu
-        loadTrack(currentTrackIndex);
 
 
         // --- 3. HIỆU ỨNG CHUYỂN ĐỔI TAB BÀI TẬP VÀ HIỆU ỨNG GSAP ---
